@@ -4,6 +4,7 @@ import { catchError,startWith , map } from 'rxjs/operators';
 import { Product } from './../../models/product.models';
 import { ProductsService } from './../../services/products.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 //import { CATCH_ERROR_VAR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
@@ -15,7 +16,7 @@ export class ProductsComponent implements OnInit {
   products$ : Observable<AppDataState<Product[]>> | null=null  ;
   readonly DataStateEnum = DataStateEnum;
 
-  constructor(private productsService : ProductsService) { }
+  constructor(private productsService : ProductsService ,private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -59,13 +60,32 @@ export class ProductsComponent implements OnInit {
           onSelect(p:Product){
             this.productsService.select(p)
             .subscribe(data => {
-              this.onGetAllProducts();
+              //this.onGetAllProducts();
+              p.selected = data.selected;
             }
 
-            )
+            );}
 
 
-          }
+            onDelete(p:Product){
+
+              let v = confirm("êtes vous sûre?") //dialogue de confirmation
+              if (v==true)
+              this.productsService.delte(p)
+              .subscribe(data => {
+                this.onGetAllProducts();
+
+              }
+
+              );}
+
+              onANewProducts(){
+                this.router.navigateByUrl("/newProduct")
+
+              }
+
+
+
 
 
 

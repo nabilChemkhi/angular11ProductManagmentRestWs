@@ -8,20 +8,28 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ProductsComponent } from './components/products/products.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductAddComponent } from './components/product-add/product-add.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     ProductsComponent,
-    HomeComponent
+    HomeComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    RouterModule.forRoot([]),
+    //routing.NgModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

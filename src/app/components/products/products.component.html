@@ -12,6 +12,9 @@
   <li >
     <button (click)="onAvailableProducts()" class="btn btn-sm btn-outline-info m-lg-2">Available</button>
   </li>
+  <li >
+    <button (click)="onANewProducts()" class="btn btn-sm btn-outline-info m-lg-2">New</button>
+  </li>
 
 </ul>
 
@@ -58,6 +61,11 @@
 
         </button>
       </td>
+      <td>
+        <button class="btn btn-danger" (click)="onDelete(p)">
+          <span class="fa fa-trash-o"></span>
+        </button>
+      </td>
 
     </tr>
   </table>
@@ -71,6 +79,7 @@
 
 
 </ng-container>
+
 
 
 

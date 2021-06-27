@@ -37,11 +37,17 @@ export class ProductsService{
     return this.http.get<Product[]>(this.host + "/products?name_like=" + keyword);
   }
 
-  select(product : Product) : Observable<Product[]>{
+  select(product : Product) : Observable<Product>{
     //let host = environment.host;
     //let host = "http://localhost:3000/";
     product.selected = !product.selected;
-    return this.http.put<Product[]>(this.host + "/products/"+product.id  ,product);
+    return this.http.put<Product>(this.host + "/products/"+product.id  ,product);
+  }
+
+  delte(product : Product) : Observable<void>{
+    //let host = environment.host;
+    //let host = "http://localhost:3000/";
+    return this.http.delete<void>(this.host + "/products/"+product.id  );
   }
 
 
