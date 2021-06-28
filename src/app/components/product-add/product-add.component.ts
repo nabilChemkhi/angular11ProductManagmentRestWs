@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators ,FormArray,FormControl } from '@angu
 export class ProductAddComponent implements OnInit {
   //variable form groupe
   productFormGroup? : FormGroup ;
-    // productFormGroup =this.fb.group({
+    //   =this.fb.group({
     //   name: ["", Validators.required],
     //   price: [0, Validators.required],
     //   quantity: [0,Validators.required],
@@ -20,7 +20,7 @@ export class ProductAddComponent implements OnInit {
     // });
   //name = new FormControl('');
   //injecter Formbuilder
-  constructor(private fb:FormBuilder, private router: Router,) { }
+  constructor(private fb:FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     //create reactive form

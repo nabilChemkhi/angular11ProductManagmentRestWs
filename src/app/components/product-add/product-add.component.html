@@ -1,6 +1,7 @@
 <div class="container">
   <!-- {{productFormGroup.value | json}} -->
   <form *ngIf="productFormGroup" [formGroup]="productFormGroup" >
+    {{productFormGroup.value | json}}
     <div class="form-group">
       <label for="">Name</label>
       <input type="text" class="form-control" formControlName="name">
