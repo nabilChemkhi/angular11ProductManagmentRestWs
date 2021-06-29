@@ -1,3 +1,4 @@
+import { ProductsService } from './../../services/products.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators ,FormArray,FormControl } from '@angular/forms';
@@ -8,6 +9,7 @@ import { FormBuilder, FormGroup, Validators ,FormArray,FormControl } from '@angu
   styleUrls: ['./product-add.component.css']
 })
 export class ProductAddComponent implements OnInit {
+
   //variable form groupe
   productFormGroup? : FormGroup ;
     //   =this.fb.group({
@@ -20,7 +22,9 @@ export class ProductAddComponent implements OnInit {
     // });
   //name = new FormControl('');
   //injecter Formbuilder
-  constructor(private fb:FormBuilder, private router: Router) { }
+submitted : boolean = false ;
+
+  constructor(private fb:FormBuilder, private router: Router ,private productsService: ProductsService) { }
 
   ngOnInit(): void {
     //create reactive form
@@ -33,6 +37,17 @@ export class ProductAddComponent implements OnInit {
       available: [true, Validators.required]
 
     });
+  }
+
+  onSaveProduct(){
+    this.submitted = true;
+    if(this.productFormGroup?.invalid) return;
+
+    this.productsService.save(this.productFormGroup?.value)
+    .subscribe(data =>{
+      alert("success saving product");
+    });
+
   }
 
 }

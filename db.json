@@ -15,6 +15,22 @@
       "quantity": 200,
       "available": true,
       "selected": true
+    },
+    {
+      "name": "product4",
+      "price": "10",
+      "quantity": "3",
+      "selected": true,
+      "available": true,
+      "id": 3
+    },
+    {
+      "id": 4,
+      "name": "x5654",
+      "price": "1111",
+      "quantity": "0",
+      "selected": true,
+      "available": true
     }
   ]
 }
