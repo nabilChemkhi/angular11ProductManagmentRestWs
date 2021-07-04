@@ -1,4 +1,4 @@
-import { AppDataState, DataStateEnum } from './../../state/product.state';
+import { AppDataState, DataStateEnum, ProductActionTypes, ActionEvent } from './../../state/product.state';
 import { Observable , of } from 'rxjs';
 import { catchError,startWith , map } from 'rxjs/operators';
 import { Product } from './../../models/product.models';
@@ -92,7 +92,46 @@ export class ProductsComponent implements OnInit {
 
 
 
+              // onActionEvent($event: ProductActionTypes){
+                // if ($event == "ALL_PRODUCTS"){
+                //   this.onGetAllProducts();
+                // }
+                onActionEvent($event: ActionEvent){
+                switch($event.type){
+                  case ProductActionTypes.GET_ALL_PRODUCTS:
+                       this.onGetAllProducts(); break;
 
+                  case ProductActionTypes.GET_SELECTED_PRODUCTS:
+                       this.onSelectedProducts(); break;
+
+                 case ProductActionTypes.GET_AVAILABLE_PRODUCTS:
+                        this.onAvailableProducts(); break;
+
+                  case ProductActionTypes.SEARCH_PRODUCTS:
+                          this.onSearch($event.payload); break;
+
+                 case ProductActionTypes.NEW_PRODUCT:
+                            this.onANewProducts(); break;
+
+
+                  //product list component events handling
+                  //products_list_events
+                  case ProductActionTypes.DELETE_PRODUCT:
+                  this.onDelete($event.payload); break;
+
+                  case ProductActionTypes.EDIT_PRODUCT:
+                  this.onEdit($event.payload); break;
+
+                  case ProductActionTypes.SELECT_PRODUCT:
+                  this.onSelect($event.payload); break;
+
+
+                }
+
+
+
+
+              }
 
 
 

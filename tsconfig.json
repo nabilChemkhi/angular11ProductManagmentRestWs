@@ -26,6 +26,7 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+    //"strictTemplates": false
   },
   "typeRoots": ["node_modules/@types", "node_modules/@angular"]
 

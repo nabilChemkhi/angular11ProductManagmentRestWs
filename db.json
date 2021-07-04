@@ -2,19 +2,11 @@
   "products": [
     {
       "id": 1,
-      "name": "cputer",
+      "name": "computer",
       "price": 300,
       "quantity": 200,
-      "available": true,
-      "selected": false
-    },
-    {
-      "id": 2,
-      "name": "printer",
-      "price": 300,
-      "quantity": 200,
-      "available": true,
-      "selected": true
+      "selected": true,
+      "available": true
     },
     {
       "name": "product4",
@@ -29,7 +21,7 @@
       "name": "x5654",
       "price": "1111",
       "quantity": "0",
-      "selected": true,
+      "selected": false,
       "available": true
     }
   ]
